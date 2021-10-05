@@ -2,6 +2,12 @@
 docker build -t feedback:no_arg .
 # image with argument
 docker build -t feedback:arg --build-arg DEFAULT_PORT=8080 .
+# image with no argument
+docker tag feedback:no_arg imajaydwivedi/feedback:no_arg
+docker push imajaydwivedi/feedback:no_arg
+# image with with argument
+docker tag feedback:arg imajaydwivedi/feedback:arg
+docker push imajaydwivedi/feedback:arg
 
 # container with env variable
 docker run -d --rm -p 8000:8000 --env PORT=8000 --name feedback -v feedback:/app/feedback -v "$(pwd):/app" -v /app/node_modules -v /app/temp feedback
