@@ -9,6 +9,7 @@ docker build -t favorites .
 
 # create internal network
 docker network create favorites
+docker network create --opt com.docker.network.bridge.name=favorites favorites
 docker network ls
 
 # create container for mongodb inside above created internal network
