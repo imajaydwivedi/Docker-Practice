@@ -1,0 +1,9 @@
+version: "3.8"
+services:
+  node-util:
+    build: ./
+    volumes:
+      - ./:/app
+    container_name: node-util
+    stdin_open: true
+    tty: true
