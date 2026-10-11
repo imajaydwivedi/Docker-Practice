@@ -29,5 +29,17 @@ docker exec -it <container_name> bash
 DOCKER_BUILDKIT=0 docker build .
 ```
 
+# Find image on docker hub with keyword
+```bash
+# Get all repos with keyword "ubuntu"
+docker search ubuntu
+
+# Find available images/tags for a particular repository. In below case repo name is "ubuntu/python"
+DOCKER_REPO="ubuntu/python"
+curl -s "https://hub.docker.com/v2/repositories/$DOCKER_REPO/tags?page_size=100" \
+  | python3 -c 'import json,sys; print("\n".join(t["name"] for t in json.load(sys.stdin)["results"]))'
+
+```
+
 
 
