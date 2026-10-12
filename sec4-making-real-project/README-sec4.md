@@ -25,13 +25,15 @@ https://hub.docker.com/search?badges=official
 ```bash
 cd /stale-storage/GitHub/Docker-Practice/sec4-making-real-project/simpleweb
 
-docker build --no-cache --progress=plain -t imajaydwivedi/simpleweb .
+docker build --progress=plain -t imajaydwivedi/simpleweb .
 docker image ls
 
 docker run --name simpleweb -p 8081:8080 imajaydwivedi/simpleweb
 
 docker stop simpleweb
 docker rm simpleweb
+
+docker exec -it simpleweb sh
 ```
 
 
