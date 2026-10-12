@@ -41,5 +41,28 @@ curl -s "https://hub.docker.com/v2/repositories/$DOCKER_REPO/tags?page_size=100"
 
 ```
 
+# Tagging an image
+
+A typical image tag should look like -
+
+<Your Docker ID> / <Repo/Project Name> : <Version>
+
+imajaydwivedi/redis:latest
+
+```bash
+cd /stale-storage/GitHub/Docker-Practice/sec2-manipulating-containers-with-docker-client/redis-image
+
+docker build -t imajaydwivedi/redis:latest .
+docker image ls
+
+docker create --name redis imajaydwivedi/redis
+docker start redis
+
+or
+docker run --name redis imajaydwivedi/redis
+
+# build container from another running container
+docker commit -c 'CMD ["redis-server"]' <container_id>
+```
 
 
